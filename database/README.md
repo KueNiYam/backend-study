@@ -32,7 +32,7 @@
 
 -------------------------------------------------------------------------------
 
-## SQL
+## SQL 문법 정리
 
 CRUD - Create, Read, Update, Delete
 
@@ -137,13 +137,11 @@ UPDATE 구문은 기존의 데이터를 수정할 때 사용한다. UPDATE의 �
 
 	UPDATE table_name SET column1 = value1 WHERE column2 = value2
 
-
 	UPDATE users SET age = 25 WHERE name = "아이유"
 
 ### DELETE
 
 	DELETE FROM table_name WHERE column = value
-
 
 	DELETE FROM users WHERE age < 20
 
@@ -158,8 +156,7 @@ JOIN 구문은 여러 테이블을 연결할 때 사용한다.
 		table2.column2
 	FROM table1 JOIN table2
 	ON table1.id = table2.table_id
-
-
+	
 	SELECT
 		users.name,
 		user_address.address
