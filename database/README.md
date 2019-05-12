@@ -198,3 +198,20 @@ JOIN 구문은 여러 테이블을 연결할 때 사용한다.
 		PRIMARY KEY (id),
 		CONSTRAINT tweets_user_id_fkey FOREIGN KEY (user_id) REFERENCES users(id)
 	);
+
+-------------------------------------------------------------------------------
+
+## config.py
+
+	#import os
+	
+	db = {
+		'user': 'kueniyam',
+		'password': 'os.getenv('pw'),
+		'host': 'localhost', # 접속할 데이터베이스의 주소
+		'port': 3306, # 접속할 데이터베이스의 포트 넘버. 주로 3306
+		'database': 'miniter'
+	}
+	DB_URL = f"mysql+mysqlconnector://{db['user']}:{db['password']}@{db['host']}:{db['port']}/{db['database']}?charset=utf8"
+
+이렇게 설정 파일을 따로 만드는 이유는 2가지다. 첫 번째는, 설정 정보를 따로 관리함으로써 민감한 개인 접속 정보를 노출하지 않아도 된다. 두 번째는, 각 환경과 설정에 맞는 설정 파일을 적용할 수 있게 된다. .gitignore 파일에 config.py 파일을 지정해 놓음으로써 config.py 파일이 git 리포지토리(repository)에 포함되지 않게 하므로 개인정보 노출을 막고, 각 개발 호스트 혹은 서버에 맞는 config.py를 생성하도록 함으로써 각 환경에 적합한 설정을 적용하도록 하는 것이다.
